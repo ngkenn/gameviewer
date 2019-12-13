@@ -1,6 +1,7 @@
 from django.shortcuts import render
 from django.http import HttpResponse
 from gameViewer.models import Game
+from gameViewer.forms import GameForm
 
 
 def index(request):
@@ -8,7 +9,6 @@ def index(request):
 
 
 def addGame(request):
-     form = GameForm()
     if request.method == 'POST':
         form = GameForm(request.POST)
 
@@ -19,9 +19,8 @@ def addGame(request):
         else:
             print(form.errors)
 
-
-    return render(request, 'gameViewer/add_game.html')
-
+    form = GameForm()
+    return render(request, 'gameViewer/add_game.html', {'form': form})
 
 
 def viewGame(request):
@@ -34,6 +33,6 @@ def viewGame(request):
     except Game.DoesNotExist:
         context_dict['game'] = None
 
-    return render(request, 'actifind/game.html', context_dict)
+    return render(request, 'gameviewer/game.html', context_dict)
 
 

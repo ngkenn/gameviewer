@@ -1,5 +1,5 @@
-{% extends 'gameviewer/base.html' %} 
-{% load staticfiles %} 
+{% extends 'gameViewer/base.html' %} 
+{% load static %} 
 
 {% block title_block %} 
     Add a Game
@@ -12,23 +12,15 @@
 
 {% block body_block %}
 
-    <h1>Add an game</h1>
+    <h1>Add a game</h1>
     <div>
         <form id="game_form" method="post" action="/gameViewer/add_game/">
             {% csrf_token %} {% for hidden in form.hidden_fields %} {{ hidden }} {% endfor %} {% for field in form.visible_fields %}
             {{ field.errors }} {{ field.help_text }} {{ field }}
             <br/> {% endfor %}
-
             <iframe id="iframemaps" width="600" height="450" frameborder="0" style="border:0" allowfullscreen hidden>
             </iframe>
             <br/>
-
-            <input type="text" name="act-lat" id="act-lat" hidden/>
-            <input type="text" name="act-lng" id="act-lng" hidden/>
-
-        
-
-            <input type="text" name="tags-string" id="tags-string" hidden/>
             
             <input type="submit" name="submit" value="Create Game" />
         </form>
