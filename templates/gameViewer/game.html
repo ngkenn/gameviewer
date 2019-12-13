@@ -1,0 +1,36 @@
+{% extends 'gameviewer/base.html' %}
+{% load staticfiles %}
+{% load partials %}
+
+{% block extra_head %}
+  <link rel="stylesheet" href="{% static 'css/game.css' %}">
+  <script src="{% static 'js/game.js' %}"></script>
+{% endblock %}
+
+{% block title_block %}
+    {{ game.name }}
+{% endblock %}
+
+
+{% block body_block %}
+  <div>
+
+    {% if game %}
+
+      <div class="row" style="margin-top:50px;">
+        <div class="col-md-4 col-12">
+              
+            <h2>{{ game.name }}</h2>
+            <p>Publisher: {{game.publisher}}</p>
+            <p>Platform: {{ game.platform }}</p>
+            <p>Genre: {{ game.Genre }}</p>
+            <p>Release Date: {{ game.release_date }}</p>
+            <p>Number of Players: {{ game.n_players }}</p>
+        </div>
+      </div>
+    
+    {% else %} 
+      The game does not exist
+    {% endif %}
+  </div>
+{% endblock %}

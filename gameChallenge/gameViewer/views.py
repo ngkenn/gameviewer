@@ -1,5 +1,6 @@
 from django.shortcuts import render
 from django.http import HttpResponse
+from gameViewer.models import Game
 
 
 def index(request):
@@ -23,6 +24,16 @@ def addGame(request):
 
 
 
-def viewGame():
+def viewGame(request):
+
+    try:
+        # Try finding the game from the slug
+        game = Game.objects.get(slug=game_name_slug)
+
+    # Reset if game was not found
+    except Game.DoesNotExist:
+        context_dict['game'] = None
+
+    return render(request, 'actifind/game.html', context_dict)
 
 
