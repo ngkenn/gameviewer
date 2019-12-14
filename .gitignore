@@ -3,3 +3,5 @@ genv/
 __pycache__/
 *.pyc
 *.vscode
+media/*
+migrations/*

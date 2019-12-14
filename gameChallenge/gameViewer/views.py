@@ -5,16 +5,23 @@ from gameViewer.forms import GameForm
 
 
 def index(request):
-    return HttpResponse("Hello, world. You're at the polls index.")
-
+    context_dict = {
+        "Games": Game.objects.all()[:3] # Get the 3 activities with the best rating
+    }
+    response = render(request, 'gameViewer/index.html', context_dict)
+    return response
 
 def addGame(request):
     if request.method == 'POST':
-        form = GameForm(request.POST)
+        form = GameForm(request.POST, request.FILES)
 
         # Check form is valid
         if form.is_valid():
             game= form.save(commit=False)
+            print(request.POST)
+            print(request.FILES)
+            if 'picture' in request.FILES:
+                game.picture = request.FILES['picture']
             game.save()
             return index(request)
         else:
@@ -24,16 +31,18 @@ def addGame(request):
     return render(request, 'gameViewer/add_game.html', {'form': form})
 
 
-def viewGame(request):
+def viewGame(request, game_name_slug):
+
+    context_dict = {}
 
     try:
         # Try finding the game from the slug
         game = Game.objects.get(slug=game_name_slug)
+        context_dict['game'] = game
 
     # Reset if game was not found
     except Game.DoesNotExist:
         context_dict['game'] = None
 
     return render(request, 'gameviewer/game.html', context_dict)
-
 

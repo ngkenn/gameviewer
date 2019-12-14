@@ -13,10 +13,10 @@ class GameForm(forms.ModelForm):
     publisher = forms.CharField(max_length=50,
                             help_text="publisher.")
     n_players = forms.IntegerField(help_text = "number of players")
-
+    picture = forms.ImageField(required=False)
     slug = forms.CharField(widget=forms.HiddenInput(), required=False)
 
 
     class Meta:
         model = Game
-        fields = ('name','platform','genre', 'release_date','publisher', 'n_players')
+        fields = ('name','platform','genre', 'release_date','publisher', 'n_players', 'picture')

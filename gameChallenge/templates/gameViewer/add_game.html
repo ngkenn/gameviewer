@@ -14,7 +14,7 @@
 
     <h1>Add a game</h1>
     <div>
-        <form id="game_form" method="post" action="/gameViewer/add_game/">
+        <form id="game_form" method="post" action="/gameViewer/add_game/" enctype="multipart/form-data">
             {% csrf_token %} {% for hidden in form.hidden_fields %} {{ hidden }} {% endfor %} {% for field in form.visible_fields %}
             {{ field.errors }} {{ field.help_text }} {{ field }}
             <br/> {% endfor %}

@@ -8,6 +8,7 @@ class Game(models.Model):
     release_date = models.DateField()
     publisher = models.CharField(max_length=50)
     n_players = models.IntegerField()
+    picture = models.ImageField(upload_to='game_cover_art/')    
     slug = models.SlugField(unique=True)
 
     # Process data on save, assign slug
@@ -21,3 +22,5 @@ class Game(models.Model):
 
     def __str__(self):
         return self.name
+
+

@@ -23,12 +23,12 @@
             <h2>{{ game.name }}</h2>
             <p>Publisher: {{game.publisher}}</p>
             <p>Platform: {{ game.platform }}</p>
-            <p>Genre: {{ game.Genre }}</p>
+            <p>Genre: {{ game.genre }}</p>
             <p>Release Date: {{ game.release_date }}</p>
             <p>Number of Players: {{ game.n_players }}</p>
+            <img src="{{ MEDIA_URL }}{{ game.picture }}" class="img-fluid image-activity" alt="">
         </div>
       </div>
-    
     {% else %} 
       The game does not exist
     {% endif %}
