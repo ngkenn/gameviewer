@@ -14,7 +14,7 @@ class GameForm(forms.ModelForm):
                             help_text="publisher.")
     n_players = forms.IntegerField(help_text = "number of players")
 
-    # slug = forms.CharField(widget=forms.HiddenInput(), required=False)
+    slug = forms.CharField(widget=forms.HiddenInput(), required=False)
 
 
     class Meta:

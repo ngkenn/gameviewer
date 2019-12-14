@@ -15,6 +15,7 @@ def addGame(request):
         # Check form is valid
         if form.is_valid():
             game= form.save(commit=False)
+            game.save()
             return index(request)
         else:
             print(form.errors)

@@ -1,5 +1,5 @@
 *.sqlite3
 genv/
-migrations/
 __pycache__/
 *.pyc
+*.vscode
