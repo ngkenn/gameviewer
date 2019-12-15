@@ -1,7 +1,6 @@
 
 {% extends 'gameViewer/base.html' %} 
 {% load static %}
-{% load partials %}
 {% block title_block %} 
     Neils super sweet game library
 {% endblock %} 
@@ -12,7 +11,21 @@
         <div class="section" id="featured-section">
         
             <div class="row" id="featured-cards" class="col-12">
-                {% show_game_list Games %}
+
+                {% if Games %} 
+                {% for game in Games %}
+                    <a href="{% url 'view_game' game.slug %}" class="col-md card-links">
+                        <div class="card">
+                            <img class="card-img" src="{% get_media_prefix %}{{ game.picture }}" alt="{{game.name}}"> 
+                        </div>
+                    </a>
+                {% endfor %} 
+            {% else %}
+                <strong>There are no games. <a href = #>Add a game</a></strong>
+            {% endif %}
+
+
+
             </div>
         </div>
     </div>

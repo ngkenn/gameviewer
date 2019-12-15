@@ -5,11 +5,8 @@
 {% if games %} 
     {% for game in games %}
         <a href="{% url 'view_game' game.slug %}" class="col-md card-links">
-            <div class="card bg-dark text-white">
-                {% if game.picture_set.count > 0%}
-              <!-----  <img class="card-img" src="{% get_media_prefix %}{{ game.picture }}"> {% else %} -->
-                <img class="card-img" src="{% get_media_prefix %}{{ game.picture }}"> 
-                {% endif %}
+            <div class="card">
+                <img class="card-img" src="{% get_media_prefix %}{{ game.picture }}" alt="no image uploaded"> 
                 <div class="card-img-overlay">
                     <div class="text-bg-gradient">
                         <h5 class="card-title">{{ game.name }}</h5>
@@ -19,5 +16,5 @@
         </a>
     {% endfor %} 
 {% else %}
-    <strong>There are no games.</strong>
+    <strong>There are no games. <a href = #>Add a game</a></strong>
 {% endif %}
