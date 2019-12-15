@@ -6,7 +6,7 @@ from gameViewer.forms import GameForm
 
 def index(request):
     context_dict = {
-        "Games": Game.objects.all()[:3] # Get the 3 activities with the best rating
+        "Games": Game.objects.all()
     }
     response = render(request, 'gameViewer/index.html', context_dict)
     return response

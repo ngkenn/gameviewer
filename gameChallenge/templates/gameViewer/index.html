@@ -1,28 +1,19 @@
 
 {% extends 'gameViewer/base.html' %} 
-{% load static %} 
+{% load static %}
 {% load partials %}
-{% block extra_head %}
-    <link rel="stylesheet" href="{% static 'css/index.css' %}">
-    <link rel="stylesheet" href="http://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css"> 
-{% endblock %} 
-
 {% block title_block %} 
     Neils super sweet game library
 {% endblock %} 
-
-
 {% block body_block %}
+<link rel="stylesheet" type='text/css' href="{% static 'css/index.css' %}">
     <div class="landing">
         <h1 class="page-header text-center">Games</h1>
-
         <div class="section" id="featured-section">
-            <h5>
-                3 games for you
-            </h5>
+        
             <div class="row" id="featured-cards" class="col-12">
-                {% show_game_list games %}
+                {% show_game_list Games %}
             </div>
         </div>
     </div>
-{% endblock %}
+{% endblock %}   

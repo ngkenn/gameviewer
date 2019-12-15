@@ -4,10 +4,11 @@
 
 {% if games %} 
     {% for game in games %}
-        <a href="{% url 'show_game' game.slug %}" class="col-md card-links">
+        <a href="{% url 'view_game' game.slug %}" class="col-md card-links">
             <div class="card bg-dark text-white">
                 {% if game.picture_set.count > 0%}
-                <img class="card-img" src="{% get_media_prefix %}{{ game.picture_set.all.0.picture}}"> {% else %}
+              <!-----  <img class="card-img" src="{% get_media_prefix %}{{ game.picture }}"> {% else %} -->
+                <img class="card-img" src="{% get_media_prefix %}{{ game.picture }}"> 
                 {% endif %}
                 <div class="card-img-overlay">
                     <div class="text-bg-gradient">
