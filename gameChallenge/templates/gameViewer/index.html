@@ -21,7 +21,7 @@
                     </a>
                 {% endfor %} 
             {% else %}
-                <strong>There are no games. <a href = #>Add a game</a></strong>
+                <strong>There are no games. <a href = "{% url 'add_game' %}">Add a game</a></strong>
             {% endif %}
 
 
