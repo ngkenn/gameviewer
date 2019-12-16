@@ -1,2 +1,2 @@
 #!/bin/bash -ex
-docker-compose up
+python manage.py runserver 8001
