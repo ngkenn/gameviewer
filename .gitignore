@@ -4,4 +4,5 @@ __pycache__/
 *.pyc
 *.vscode
 media/*
+game_cover_art/*
 migrations/*

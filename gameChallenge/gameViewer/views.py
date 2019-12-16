@@ -44,5 +44,5 @@ def viewGame(request, game_name_slug):
     except Game.DoesNotExist:
         context_dict['game'] = None
 
-    return render(request, 'gameviewer/game.html', context_dict)
+    return render(request, 'gameViewer/game.html', context_dict)
 
